@@ -19,8 +19,11 @@ Predict the price of cars in the Indian market. Predictions will be based on veh
 
 
 Methodology
+
 Load libraries
+
 Load the data 
+
 Understand the data by observing a few rows
 
 Observations and Insights: 
@@ -121,6 +124,3 @@ XGBoost
 
 Measures of success - What are the key measures of success?
 Evaluate the best model Accuracy above 85%. 
-
-
-![image](https://user-images.githubusercontent.com/111833990/186065359-048822b2-f552-4290-98cd-479d9b5cbcdb.png)
