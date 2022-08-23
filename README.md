@@ -18,7 +18,7 @@ Predict the price of cars in the Indian market. Predictions will be based on veh
 
 
 
-Methodology
+# Methodology
 
 Load libraries
 
@@ -26,37 +26,42 @@ Load the data
 
 Understand the data by observing a few rows
 
-Observations and Insights: 
+## Observations and Insights: 
+
 There are both numerical and categorical variables in the dataset as such the categorical variables will have to be encoded. There are missing values in the new_price and price columns The name column contains data that may be able to be separated into different columns eg. "Mercedes-Benz E-Class 2009-2013 E 220 CDI Avan" contains year, brand name and model which may or may not be relevant Serial No. Also, may not be necessary as is too unique and maybe dropped later We also see both categorical and numerical variables which may influence the methods we use
 Let us check the data types and and missing values of each column
 
-Observations and Insights: 
+## Observations and Insights: 
+
 Both categorical and numerical data can be seen. We will need to come up with ways to address the missing values as well, however al missing values appear to be numerical which will have to be addressed by some statistical means (mean, meadian, ect). The missing data seems minial compared to the number of rows in the dataset and a large missing value within the target variable is as expected
 We can observe that S.No. has no null values. Also the number of unique values are equal to the number of observations. So, S.No. looks like an index for the data entry and such a column would not be useful in providing any predictive power for our analysis. Hence, it can be dropped.
 
 
-Exploratory Data Analysis
+# Exploratory Data Analysis
 
-Observations and Insights: 
+## Observations and Insights: 
 The average year seems to be at 2013 Mileage minimum is at 0 which means that there is either outliers or incorrect data
 Let us also explore the statistics of all categorical variables
 
-Observations and Insights: 
+## Observations and Insights: 
+
 most cars use either desisel or petrol. The least amount of cars are being sold in Ahmedabad. Most cars are manual transmission. Mahindra seems to be the top brand
 
 Check Kilometers_Driven extreme values
 
-Observations and Insights: 
+## Observations and Insights: 
+
 In the first row, a car manufactured as recently as 2017 having been driven 6500000 km is almost impossible. It can be considered as data entry error and so we can remove this value/entry from data.
 
 Check Mileage extreme values
 
-Observations and Insights: 
+## Observations and Insights: 
+
 Mileage of cars can not be 0, so we should treat 0's as missing values. We will do it in the Feature Engineering part.
 
-Univariate Analysis - Numerical Data
+# Univariate Analysis - Numerical Data
 
-Observations and Insights: 
+## Observations and Insights: 
 
 Kilometers_driven is not normally distributed, it is right skewed. To solve this problem, the log transformation on kilometers_driven is applied when it has skewed distribution. And add the transformed variable into the dataset. You can name the variable as ' kilometers_driven_log'.
 
@@ -64,14 +69,16 @@ Like Kilometers_Driven, the distribution of Price is also highly skewed, we can 
 
 Like Kilometers_Driven, the distribution of Power is also highly skewed, we can use log transformation on this column to see if that helps normalize the distribution. And add the transformed variable into the dataset. You can name the variable as 'power_log'.
 
-Univariate analysis - Categorical Data
+# Univariate analysis - Categorical Data
 
-Observations and Insights 
+## Observations and Insights:
+
 Most of the owners within this dat aset are first-time owners. Most cars are manual transmission cars. Diesel and Pertol is the predominant fuel type. Most care in the data set are "newer" cars (2011 - 2015)
 
-Bivariate Analysis
+# Bivariate Analysis
 
-Observations and Insights from all plots: 
+## Observations and Insights from all plots: 
+
 Positive relationships:
 •	price_log and year
 •	power and engine
@@ -80,11 +87,11 @@ Coimbatore and Bangalore have on average the most expensive car prices
 Diesel cars on average are the most expensive, electic cars although expensive are not significant in the data set. Automatic cars are the most expensive. Cars with only one previous owner are the most expensive
 
 
-Feature Engineering¶
+# Feature Engineering
 
 The Name column in the current format might not be very useful in our analysis. Since the name contains both the brand name and the model name of the vehicle, the column would have too many unique values to be useful in prediction. With 2041 unique names, car names are not going to be great predictors of the price in our current data. But we can process this column to extract important information for example brand name.
 
-Missing value treatment
+## Missing value treatment
 
 Missing values in Seats
 extracted information from 'Name' column to impute missing values. Impute these missing values one by one, by taking median number of seats for the particular car, using the Brand and Model name.
@@ -104,7 +111,7 @@ left as is since this is a target variable
 Added the column age
 Age based on current Year
 
-Observation on missing values 
+## Observation on missing values 
 New_Price, Price and Price_log is missing values as expected, Power_log is missing values as the log transformation needs to be done on the price column once again. To be addressed later
 
 
